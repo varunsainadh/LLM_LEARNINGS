@@ -1,17 +1,21 @@
+import os
+# Fix for Anaconda OpenMP runtime error on Windows
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+
 import torch
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import sys
-import os
 
 def run_explainer(input_text):
     print(f"Loading real GPT-2 model to process: '{input_text}'...")
     
     # 1. Load Model and Tokenizer
     tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
-    model = GPT2LMHeadModel.from_pretrained('gpt2')
+    # Set attn_implementation='eager' to disable SDPA/FlashAttention and extract raw attention weights
+    model = GPT2LMHeadModel.from_pretrained('gpt2', attn_implementation='eager')
     
     # Ensure model outputs attentions
     model.config.output_attentions = True
