@@ -1,5 +1,7 @@
 # The Transformer Architecture (Original Encoder-Decoder)
 
+![Transformer Architecture Model](https://machinelearningmastery.com/wp-content/uploads/2021/08/attention_research_1.png)
+
 This document visualizes the foundational architecture of the original Transformer, as introduced in the 2017 paper *"Attention Is All You Need"* by Vaswani et al. 
 
 This architecture was designed primarily for Sequence-to-Sequence (Seq2Seq) tasks such as machine translation. It consists of two main stacks: the **Encoder** (which processes the input sequence) and the **Decoder** (which generates the output sequence auto-regressively).
