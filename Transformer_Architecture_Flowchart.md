@@ -16,19 +16,19 @@ graph TD
     classDef output fill:#39ff96,stroke:#1f9d5a,stroke-width:2px,color:#000;
 
     subgraph "Encoder Stack (Nx)"
-        E_MHA[Multi-Head Self-Attention]:::encoder
-        E_AddNorm1[Add & LayerNorm]:::encoder
-        E_FFN[Feed Forward Network]:::encoder
-        E_AddNorm2[Add & LayerNorm]:::encoder
+        E_MHA["Multi-Head Self-Attention"]:::encoder
+        E_AddNorm1["Add & LayerNorm"]:::encoder
+        E_FFN["Feed Forward Network"]:::encoder
+        E_AddNorm2["Add & LayerNorm"]:::encoder
     end
 
     subgraph "Decoder Stack (Nx)"
-        D_MHA[Masked Multi-Head Attention]:::decoder
-        D_AddNorm1[Add & LayerNorm]:::decoder
-        D_Cross[Cross-Attention (Encoder-Decoder)]:::decoder
-        D_AddNorm2[Add & LayerNorm]:::decoder
-        D_FFN[Feed Forward Network]:::decoder
-        D_AddNorm3[Add & LayerNorm]:::decoder
+        D_MHA["Masked Multi-Head Attention"]:::decoder
+        D_AddNorm1["Add & LayerNorm"]:::decoder
+        D_Cross["Cross-Attention (Encoder-Decoder)"]:::decoder
+        D_AddNorm2["Add & LayerNorm"]:::decoder
+        D_FFN["Feed Forward Network"]:::decoder
+        D_AddNorm3["Add & LayerNorm"]:::decoder
     end
 
     Input_Source["Source Sequence (e.g. French)"]:::input --> Tok_Source["Input Embedding"]
