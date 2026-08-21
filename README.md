@@ -15,6 +15,22 @@ This document abandons high-level abstractions in favor of raw PyTorch implement
 
 ---
 
+## Transformers vs. LLMs: The Architecture Connection
+
+While the terms "Transformer" and "Large Language Model" (LLM) are often used interchangeably, they refer to different steps in the evolution of AI architecture.
+
+**The Original Transformer:**
+Introduced in the 2017 paper *"Attention Is All You Need"*, the original Transformer was designed for Sequence-to-Sequence (Seq2Seq) tasks like machine translation. It consists of two halves:
+1. **An Encoder:** Processes the input text and builds a contextual representation using Self-Attention.
+2. **A Decoder:** Generates the output text auto-regressively, using **Cross-Attention** to "look back" at the Encoder's representation.
+👉 *See the classic architecture mapped out in the [Transformer Flowchart](Transformer_Architecture_Flowchart.md).*
+
+**The Modern LLM (e.g., GPT):**
+Modern Large Language Models like GPT-3, LLaMA, and Claude are scaled-up variations of the Transformer, but they **drop the Encoder entirely**. They rely strictly on a massive stack of **Decoder blocks**. By processing the prompt and the generated text through the same Decoder stack using masked self-attention, they are heavily optimized for auto-regressive next-token prediction.
+👉 *See how the modern generative architecture functions in the [LLM/GPT Flowchart](LLM_GPT_Architecture_Flowchart.md).*
+
+---
+
 ## Chapter 1: Data Processing & Tokenization
 
 Before a neural network can process text, linguistic data must be discretized into a continuous integer space. While basic approaches use word-level splitting, modern LLMs use sub-word tokenization like **Byte-Pair Encoding (BPE)**.
